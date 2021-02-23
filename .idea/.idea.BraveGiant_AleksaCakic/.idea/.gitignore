@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.BraveGiant_AleksaCakic.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../:\Users\Alesa\BraveGiant_AleksaCakic\.idea\.idea.BraveGiant_AleksaCakic\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
