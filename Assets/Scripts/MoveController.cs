@@ -4,13 +4,16 @@ using UnityEngine;
 public class MoveController : MonoBehaviour
 {
     public GameObject finalPlace;
-    private bool moving;
+    private bool isMoving;
     private bool isFinalPlacement;
 
     private float startPositionX;
     private float startPositionY;
 
     private Vector3 resetPosition;
+
+    private float startRotation = 0.0f;
+    private float maxTurnDegree = 45.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,7 @@ public class MoveController : MonoBehaviour
     {
         if (!isFinalPlacement)
         {
-            if (moving)
+            if (isMoving)
             {
                 Vector3 mousePos;
                 mousePos = Input.mousePosition;
@@ -36,16 +39,13 @@ public class MoveController : MonoBehaviour
                     mousePos.y - startPositionY,
                     gameObject.transform.localPosition.z
                 );
-
-                Debug.Log(
-                    $"Nesto se desava - x: {startPositionX}, y: {startPositionY}. " +
-                    $"U Update metodi. Ime objekta: {gameObject.name}");
             }
         }
     }
 
     private void OnMouseDown()
     {
+        isMoving = true;
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos;
@@ -55,33 +55,29 @@ public class MoveController : MonoBehaviour
             startPositionX = mousePos.x - transform.localPosition.x;
             startPositionY = mousePos.y - transform.localPosition.y;
 
-            moving = true;
-
-            Debug.Log(
-                $"Nesto se desava - x: {startPositionX}, y: {startPositionY}. " +
-                $"U OnMouseDown metodi. Ime objekta: {gameObject.name}");
-        }
+            GetComponent<SpriteRenderer>().sortingOrder++;
+        } 
     }
 
     private void OnMouseUp()
     {
-        moving = false;
-
-        if (Math.Abs(transform.localPosition.x - finalPlace.transform.localPosition.x) <= 0.5f &&
-            Math.Abs(transform.localPosition.y - finalPlace.transform.localPosition.y) <= 0.5f)
+        isMoving = false;
+        Vector3 localPos = finalPlace.transform.localPosition;
+        Quaternion localRot = finalPlace.transform.rotation;
+        
+        if (Math.Abs(transform.localPosition.x - localPos.x) <= 0.5f && 
+            Math.Abs(transform.localPosition.y - localPos.y) <= 0.5f && 
+            Math.Abs(transform.rotation.z - finalPlace.transform.rotation.z) <= 0.35f)
         {
-            Vector3 localPosition = finalPlace.transform.localPosition;
-            transform.localPosition = new Vector3(
-                localPosition.x,
-                localPosition.y,
-                localPosition.z
-            );
+            transform.localPosition = new Vector3(localPos.x, localPos.y, localPos.z);
+            transform.localRotation = new Quaternion(localRot.x, localRot.y, localRot.z, localRot.w);
 
             isFinalPlacement = true;
+            GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
         else
         {
-            transform.localPosition = new Vector3(resetPosition.x, resetPosition.y, resetPosition.z);
+            transform.Rotate(startRotation, startRotation, maxTurnDegree); 
         }
     }
 }
