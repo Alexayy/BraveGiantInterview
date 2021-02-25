@@ -7,6 +7,8 @@ public class MoveController : MonoBehaviour
     private bool isMoving;
     private bool isFinalPlacement;
 
+    private bool isLocked;
+
     private float startPositionX;
     private float startPositionY;
 
@@ -19,7 +21,9 @@ public class MoveController : MonoBehaviour
     void Start()
     {
         Debug.Log("Da ne bude metoda prazna, buni mi se Rider :c");
+        Debug.Log(GameObject.FindGameObjectsWithTag("Piece").Length + " Broj cudova u gejm objektu");
 
+        isLocked = true;
         resetPosition = transform.localPosition;
     }
 
@@ -46,7 +50,8 @@ public class MoveController : MonoBehaviour
     private void OnMouseDown()
     {
         isMoving = true;
-        if (Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0) && !isFinalPlacement)
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
@@ -55,8 +60,8 @@ public class MoveController : MonoBehaviour
             startPositionX = mousePos.x - transform.localPosition.x;
             startPositionY = mousePos.y - transform.localPosition.y;
 
-            GetComponent<SpriteRenderer>().sortingOrder++;
-        } 
+            GetComponent<SpriteRenderer>().sortingOrder = 10;
+        }
     }
 
     private void OnMouseUp()
@@ -64,9 +69,9 @@ public class MoveController : MonoBehaviour
         isMoving = false;
         Vector3 localPos = finalPlace.transform.localPosition;
         Quaternion localRot = finalPlace.transform.rotation;
-        
-        if (Math.Abs(transform.localPosition.x - localPos.x) <= 0.5f && 
-            Math.Abs(transform.localPosition.y - localPos.y) <= 0.5f && 
+
+        if (Math.Abs(transform.localPosition.x - localPos.x) <= 0.5f &&
+            Math.Abs(transform.localPosition.y - localPos.y) <= 0.5f &&
             Math.Abs(transform.rotation.z - finalPlace.transform.rotation.z) <= 0.35f)
         {
             transform.localPosition = new Vector3(localPos.x, localPos.y, localPos.z);
@@ -74,10 +79,17 @@ public class MoveController : MonoBehaviour
 
             isFinalPlacement = true;
             GetComponent<SpriteRenderer>().sortingOrder = 0;
+
+            if (isLocked)
+            {
+                isLocked = false;
+                GameObject.Find("SceneManager").GetComponent<LevelController>().AddPoints();    
+            }
         }
         else
         {
-            transform.Rotate(startRotation, startRotation, maxTurnDegree); 
+            transform.Rotate(startRotation, startRotation, maxTurnDegree);
+            GetComponent<SpriteRenderer>().sortingOrder++;
         }
     }
 }
