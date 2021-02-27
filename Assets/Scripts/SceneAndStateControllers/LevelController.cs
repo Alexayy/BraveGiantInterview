@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
     private int pointsToFinish;
     private int currentPoints;
     public GameObject pieces;
+    public GameObject particleControll;
+
+    private void Awake()
+    {
+        particleControll.GetComponentInChildren<ParticleSystem>().Pause();
+    }
 
     private void Start()
     {
@@ -19,12 +21,9 @@ public class LevelController : MonoBehaviour
     {
         if (currentPoints >= pointsToFinish)
         {
-            // TODO Particle Trigger here
-            SceneManager.LoadScene("SampleScene");
-            Debug.Log("All points: " + pointsToFinish);
+            particleControll.GetComponentInChildren<ParticleSystem>().Play();
         }
         
-        Debug.Log("Current points: " + currentPoints);
         currentPoints++;
     }
 }

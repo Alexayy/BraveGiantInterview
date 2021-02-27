@@ -20,9 +20,6 @@ public class MoveController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Da ne bude metoda prazna, buni mi se Rider :c");
-        Debug.Log(GameObject.FindGameObjectsWithTag("Piece").Length + " Broj cudova u gejm objektu");
-
         isLocked = true;
         resetPosition = transform.localPosition;
     }
@@ -47,6 +44,9 @@ public class MoveController : MonoBehaviour
         }
     }
 
+    /**
+     * Na levi klik, dok se drzi, dozvoljava da se aset prevlaci preko scene.
+     */
     private void OnMouseDown()
     {
         isMoving = true;
@@ -64,6 +64,12 @@ public class MoveController : MonoBehaviour
         }
     }
 
+    /**
+     * Kada se pusti levi taster, metoda ce proveriti koliko se blizu nalaze nalaze delovi puzle svom tacnom odredistu,
+     * kada se nalaze u odredjenom radiusu, snepovace se na mesto gde ce biti.
+     *
+     * Ako ne prodje kroz uslov, zarotirace aset za 45 stepeni.
+     */
     private void OnMouseUp()
     {
         isMoving = false;
@@ -72,24 +78,25 @@ public class MoveController : MonoBehaviour
 
         if (Math.Abs(transform.localPosition.x - localPos.x) <= 0.5f &&
             Math.Abs(transform.localPosition.y - localPos.y) <= 0.5f &&
-            Math.Abs(transform.rotation.z - finalPlace.transform.rotation.z) <= 0.35f)
+            Math.Abs(transform.rotation.z - finalPlace.transform.rotation.z) <= 0.4f)
         {
             transform.localPosition = new Vector3(localPos.x, localPos.y, localPos.z);
             transform.localRotation = new Quaternion(localRot.x, localRot.y, localRot.z, localRot.w);
 
             isFinalPlacement = true;
-            GetComponent<SpriteRenderer>().sortingOrder = 0;
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
 
             if (isLocked)
             {
                 isLocked = false;
-                GameObject.Find("SceneManager").GetComponent<LevelController>().AddPoints();    
+                GameObject.Find("SceneManager").GetComponent<LevelController>().AddPoints();
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
         else
         {
             transform.Rotate(startRotation, startRotation, maxTurnDegree);
-            GetComponent<SpriteRenderer>().sortingOrder++;
+            GetComponent<SpriteRenderer>().sortingOrder = 5;
         }
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4369522765875502946}
   - component: {fileID: 4369522765875502973}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 01_03_mg_teleport_puzzle_01_puzzle_part_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 14980a69efa0c1a48b971d07ba3ce3c1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4369522766140025477}
   - component: {fileID: 4369522766140025476}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 01_03_mg_teleport_puzzle_01_puzzle_part_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9863619ceb690a24fb4d2d3e47ea5144, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4369522766703124441}
   - component: {fileID: 4369522766703124440}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 01_03_mg_teleport_puzzle_01_puzzle_part_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bf4cc2da3e1900144956f732fc14f045, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4369522766814429376}
   - component: {fileID: 4369522766814429379}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 01_03_mg_teleport_puzzle_01_puzzle_part_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 81c4446844135c644b80d725b39b9295, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -326,7 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4369522766856933418}
   - component: {fileID: 4369522766856933413}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 01_03_mg_teleport_puzzle_01_puzzle_part_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cf771f9fdfb3f23488e94a42c6ebff14, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -404,7 +404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4369522766945648640}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Silhuete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 4369522766945648643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.4703484, y: 1.4530141, z: 0.45117188}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.397, y: 1.397, z: 1.397}
   m_Children:
   - {fileID: 4369522766703124441}
   - {fileID: 4369522767201179113}
@@ -441,7 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4369522767201179113}
   - component: {fileID: 4369522767201179112}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 01_03_mg_teleport_puzzle_01_puzzle_part_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16dfdd7da60bb42439f63f06eabcc84b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

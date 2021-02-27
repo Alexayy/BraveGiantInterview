@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
@@ -10,7 +8,7 @@ public class SceneController : MonoBehaviour
         Application.Quit();
     }
 
-    public void ResetScene(string sceneName)
+    public void QueScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
